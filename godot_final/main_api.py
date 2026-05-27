@@ -967,7 +967,7 @@ async def schedule_get():
 import json as _json_mod
 from pathlib import Path as _Path
 
-_STORIES_DIR = _Path(__file__).parent.parent / "Cluade GodotMapTest" / "stories"
+_STORIES_DIR = _Path(__file__).parent.parent / "GodotMap" / "stories"
 _active_assistant: dict = {}   # {"agent": str, "data": dict}
 
 

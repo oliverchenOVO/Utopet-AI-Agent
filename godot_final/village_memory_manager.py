@@ -1,4 +1,4 @@
-# village_memory_manager.py — 村莊 Agent 對話記憶管理（整合自 Cluade GodotMapTest）
+# village_memory_manager.py — 村莊 Agent 對話記憶管理（整合自 GodotMap）
 # 負責 Agent 間對話摘要與關係記錄，資料以 JSON 儲存於村莊專案目錄
 
 import json
@@ -6,7 +6,7 @@ import os
 from typing import Dict, List
 
 from pathlib import Path as _P
-MEMORY_ROOT = str(_P(__file__).parent.parent / "Cluade GodotMapTest" / "GodotPY" / "data" / "memory")
+MEMORY_ROOT = str(_P(__file__).parent.parent / "GodotMap" / "GodotPY" / "data" / "memory")
 KNOWN_AGENTS = ["Jack", "Mike", "Fin", "Buba"]
 
 TOPIC_KEYWORDS = {

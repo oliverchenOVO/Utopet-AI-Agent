@@ -21,7 +21,7 @@
 - [快速開始](#快速開始)
 - [子專案說明](#子專案說明)
   - [godot\_final — Python 後端](#godot_final--python-後端)
-  - [Cluade GodotMapTest — 村莊模擬](#cluade-godotmaptest--村莊模擬)
+  - [GodotMap — 村莊模擬](#cluade-godotmaptest--村莊模擬)
   - [godot-4-ui — 桌面寵物 UI](#godot-4-ui--桌面寵物-ui)
 - [API 總覽](#api-總覽)
 - [常見問題](#常見問題)
@@ -33,7 +33,7 @@
 ```
 Utopet-AI-Agent/
 ├── godot_final/              # Python FastAPI 後端（共用核心）
-├── Cluade GodotMapTest/      # Godot 4 村莊模擬前端
+├── GodotMap/      # Godot 4 村莊模擬前端
 └── godot-4-ui/               # Godot 4 桌面寵物 UI 前端
 ```
 
@@ -89,7 +89,7 @@ Utopet-AI-Agent/
 | **網頁摘要** | trafilatura 抓取正文，LLM 生成新聞 / 文章摘要與重點列表 |
 | **日程管理** | 新增日程文字，Godot 端 UI 顯示今日行程 |
 
-### 村莊模擬（Cluade GodotMapTest + godot_final）
+### 村莊模擬（GodotMap + godot_final）
 
 | 功能 | 說明 |
 |------|------|
@@ -187,7 +187,7 @@ python main_api.py
 ### 步驟 4：開啟 Godot 前端
 
 1. 開啟 **Godot 4.4**
-2. 點選「匯入」→ 選擇 `Cluade GodotMapTest/project.godot`（村莊）或 `godot-4-ui/project.godot`（桌面寵物）
+2. 點選「匯入」→ 選擇 `GodotMap/project.godot`（村莊）或 `godot-4-ui/project.godot`（桌面寵物）
 3. 按 **F5** 執行
 
 ---
@@ -247,9 +247,9 @@ GMAIL_APP_PASSWORD = "xxxx xxxx xxxx xxxx"  # 16 碼 App 密碼
 
 ---
 
-### Cluade GodotMapTest — 村莊模擬
+### GodotMap — 村莊模擬
 
-**位置：** `Cluade GodotMapTest/`  
+**位置：** `GodotMap/`  
 **引擎：** Godot 4.4 Forward Plus  
 **解析度：** 336 × 256（像素藝術風格）
 

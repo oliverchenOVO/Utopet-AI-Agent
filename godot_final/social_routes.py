@@ -1,4 +1,4 @@
-# social_routes.py — 村莊 AI 社交系統路由（整合自 Cluade GodotMapTest）
+# social_routes.py — 村莊 AI 社交系統路由（整合自 GodotMap）
 
 from fastapi import APIRouter
 from pydantic import BaseModel
@@ -12,7 +12,7 @@ from social_system import (
 router = APIRouter()
 
 from pathlib import Path as _P
-VILLAGE_DATA_DIR = str(_P(__file__).parent.parent / "Cluade GodotMapTest" / "GodotPY" / "data")
+VILLAGE_DATA_DIR = str(_P(__file__).parent.parent / "GodotMap" / "GodotPY" / "data")
 
 engine = SocialEngine(data_dir=VILLAGE_DATA_DIR)
 bridges: Dict[str, SchedulerBridge] = {}

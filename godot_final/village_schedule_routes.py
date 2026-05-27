@@ -11,7 +11,7 @@ router = APIRouter()
 
 OLLAMA_URL   = "http://127.0.0.1:11434/api/generate"
 OLLAMA_MODEL = "qwen2.5:1.5b"
-STORIES_DIR  = Path(__file__).parent.parent / "Cluade GodotMapTest" / "stories"
+STORIES_DIR  = Path(__file__).parent.parent / "GodotMap" / "stories"
 
 AGENT_VARIANTS: dict = {
     "Jack": {
