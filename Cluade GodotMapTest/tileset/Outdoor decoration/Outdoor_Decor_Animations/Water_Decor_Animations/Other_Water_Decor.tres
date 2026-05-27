@@ -1,0 +1,80 @@
+[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://cbigvosviidm4"]
+
+[ext_resource type="Texture2D" uid="uid://dndbodv8cnvcx" path="res://assets/Cute_Fantasy/Outdoor decoration/Outdoor_Decor_Animations/Water_Decor_Animations/Other_Water_Decor/Branch_Water_Anim.png" id="1_kh8lg"]
+[ext_resource type="Texture2D" uid="uid://up5cknansy7h" path="res://assets/Cute_Fantasy/Outdoor decoration/Outdoor_Decor_Animations/Water_Decor_Animations/Other_Water_Decor/Log_1_Water_Anim.png" id="2_h1knr"]
+[ext_resource type="Texture2D" uid="uid://ca3ktvjjuijrx" path="res://assets/Cute_Fantasy/Outdoor decoration/Outdoor_Decor_Animations/Water_Decor_Animations/Other_Water_Decor/Log_2_Water_Anim.png" id="3_7j6en"]
+[ext_resource type="Texture2D" uid="uid://wsr3q1h5g3k3" path="res://assets/Cute_Fantasy/Outdoor decoration/Outdoor_Decor_Animations/Water_Decor_Animations/Other_Water_Decor/Log_3_Water_Anim.png" id="4_7ed5x"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lpql0"]
+texture = ExtResource("1_kh8lg")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t8ggs"]
+texture = ExtResource("2_h1knr")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+15:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_et5w2"]
+texture = ExtResource("3_7j6en")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+15:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2s3r6"]
+texture = ExtResource("4_7ed5x")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+15:0/0 = 0
+
+[resource]
+sources/0 = SubResource("TileSetAtlasSource_lpql0")
+sources/1 = SubResource("TileSetAtlasSource_t8ggs")
+sources/2 = SubResource("TileSetAtlasSource_et5w2")
+sources/3 = SubResource("TileSetAtlasSource_2s3r6")

@@ -1,0 +1,21 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://dkhahpeeysmhy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3wm1w"]
+bg_color = Color(1, 1, 1, 1)
+border_width_top = 1
+border_width_bottom = 1
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_78v3r"]
+bg_color = Color(0.378205, 0.366427, 0.367966, 1)
+
+[resource]
+GridContainer/constants/h_separation = 10
+GridContainer/constants/v_separation = 10
+HBoxContainer/constants/separation = 305
+HSeparator/constants/separation = 10
+HSeparator/styles/separator = SubResource("StyleBoxFlat_3wm1w")
+Label/constants/outline_size = 4
+Label/font_sizes/font_size = 18
+Panel/styles/panel = SubResource("StyleBoxFlat_78v3r")
+VBoxContainer/constants/separation = 4

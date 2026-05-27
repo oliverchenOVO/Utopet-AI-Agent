@@ -1,0 +1,24 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://d4nqw6mp64rr8"]
+
+[ext_resource type="Texture2D" uid="uid://bpp102jclyw3j" path="res://assets/Cute_Fantasy/Buildings/Buildings/Unique_Buildings/Silo/Silo.png" id="1_0vasr"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2cef6"]
+texture = ExtResource("1_0vasr")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+
+[resource]
+sources/0 = SubResource("TileSetAtlasSource_2cef6")

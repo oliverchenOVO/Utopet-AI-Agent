@@ -1,0 +1,94 @@
+[gd_resource type="TileSet" load_steps=17 format=3 uid="uid://dq6brgkhca8my"]
+
+[ext_resource type="Texture2D" uid="uid://ciu1lk16v1s7w" path="res://assets/Cute_Fantasy/Outdoor decoration/Outdoor_Decor_Animations/Muschroom_Animations/muschroom_1_Anim.png" id="1_d4wq0"]
+[ext_resource type="Texture2D" uid="uid://b131p1i2grqj6" path="res://assets/Cute_Fantasy/Outdoor decoration/Outdoor_Decor_Animations/Muschroom_Animations/muschroom_2_Anim.png" id="2_y1a1w"]
+[ext_resource type="Texture2D" uid="uid://tv72w3r2llf2" path="res://assets/Cute_Fantasy/Outdoor decoration/Outdoor_Decor_Animations/Muschroom_Animations/muschroom_3_Anim.png" id="3_mhv5b"]
+[ext_resource type="Texture2D" uid="uid://j4h8o14t0nqf" path="res://assets/Cute_Fantasy/Outdoor decoration/Outdoor_Decor_Animations/Muschroom_Animations/muschroom_4_Anim.png" id="4_nttji"]
+[ext_resource type="Texture2D" uid="uid://p3is44ojcj5a" path="res://assets/Cute_Fantasy/Outdoor decoration/Outdoor_Decor_Animations/Muschroom_Animations/muschroom_5_Anim.png" id="5_1bchd"]
+[ext_resource type="Texture2D" uid="uid://ckl8u5rdiy7c0" path="res://assets/Cute_Fantasy/Outdoor decoration/Outdoor_Decor_Animations/Muschroom_Animations/muschroom_6_Anim.png" id="6_wpanu"]
+[ext_resource type="Texture2D" uid="uid://c8fgum6ubbfpk" path="res://assets/Cute_Fantasy/Outdoor decoration/Outdoor_Decor_Animations/Muschroom_Animations/muschroom_7_Anim.png" id="7_34ir4"]
+[ext_resource type="Texture2D" uid="uid://qfp2j2d5o00v" path="res://assets/Cute_Fantasy/Outdoor decoration/Outdoor_Decor_Animations/Muschroom_Animations/muschroom_8_Anim.png" id="8_5gyjn"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8ws13"]
+texture = ExtResource("1_d4wq0")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dvdhx"]
+texture = ExtResource("2_y1a1w")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yh6c4"]
+texture = ExtResource("3_mhv5b")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lovmn"]
+texture = ExtResource("4_nttji")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d1f8c"]
+texture = ExtResource("5_1bchd")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1sui4"]
+texture = ExtResource("6_wpanu")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_186d7"]
+texture = ExtResource("7_34ir4")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kddd2"]
+texture = ExtResource("8_5gyjn")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+
+[resource]
+sources/0 = SubResource("TileSetAtlasSource_8ws13")
+sources/1 = SubResource("TileSetAtlasSource_dvdhx")
+sources/2 = SubResource("TileSetAtlasSource_yh6c4")
+sources/3 = SubResource("TileSetAtlasSource_lovmn")
+sources/4 = SubResource("TileSetAtlasSource_d1f8c")
+sources/5 = SubResource("TileSetAtlasSource_1sui4")
+sources/6 = SubResource("TileSetAtlasSource_186d7")
+sources/7 = SubResource("TileSetAtlasSource_kddd2")

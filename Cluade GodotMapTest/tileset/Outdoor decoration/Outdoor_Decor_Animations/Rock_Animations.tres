@@ -1,0 +1,334 @@
+[gd_resource type="TileSet" load_steps=37 format=3 uid="uid://dw8sk4kpflfxt"]
+
+[ext_resource type="Texture2D" uid="uid://jwehpu11nlob" path="res://assets/Cute_Fantasy/Outdoor decoration/Outdoor_Decor_Animations/Rock_Animations/Cave_Rock_1_Anim.png" id="1_bhprp"]
+[ext_resource type="Texture2D" uid="uid://cpxb7qxe3ptnd" path="res://assets/Cute_Fantasy/Outdoor decoration/Outdoor_Decor_Animations/Rock_Animations/Cave_Rock_2_Anim.png" id="2_6r7ba"]
+[ext_resource type="Texture2D" uid="uid://bc6b7w0ynvuvw" path="res://assets/Cute_Fantasy/Outdoor decoration/Outdoor_Decor_Animations/Rock_Animations/Rock_7_Anim.png" id="3_t7wpc"]
+[ext_resource type="Texture2D" uid="uid://b5fwf7sdband6" path="res://assets/Cute_Fantasy/Outdoor decoration/Outdoor_Decor_Animations/Rock_Animations/Rock_8_Anim.png" id="4_r22yo"]
+[ext_resource type="Texture2D" uid="uid://lpn4ujvt603h" path="res://assets/Cute_Fantasy/Outdoor decoration/Outdoor_Decor_Animations/Rock_Animations/Rock_9_Anim.png" id="5_4x805"]
+[ext_resource type="Texture2D" uid="uid://8rdrsw0ir8ig" path="res://assets/Cute_Fantasy/Outdoor decoration/Outdoor_Decor_Animations/Rock_Animations/Rock_10_Anim.png" id="6_7ff15"]
+[ext_resource type="Texture2D" uid="uid://dleod0knbjie8" path="res://assets/Cute_Fantasy/Outdoor decoration/Outdoor_Decor_Animations/Rock_Animations/Rock_11_Anim.png" id="7_6555e"]
+[ext_resource type="Texture2D" uid="uid://dbcx0crocxb7n" path="res://assets/Cute_Fantasy/Outdoor decoration/Outdoor_Decor_Animations/Rock_Animations/Rock_12_Anim.png" id="8_h72y0"]
+[ext_resource type="Texture2D" uid="uid://u5jkq3g752i8" path="res://assets/Cute_Fantasy/Outdoor decoration/Outdoor_Decor_Animations/Rock_Animations/Rock_13_Anim.png" id="9_i225g"]
+[ext_resource type="Texture2D" uid="uid://o3jwafctjf0h" path="res://assets/Cute_Fantasy/Outdoor decoration/Outdoor_Decor_Animations/Rock_Animations/Rock_14_Anim.png" id="10_pwa2d"]
+[ext_resource type="Texture2D" uid="uid://bv64qy2v0ojs3" path="res://assets/Cute_Fantasy/Outdoor decoration/Outdoor_Decor_Animations/Rock_Animations/Cave_Rock_3_Anim.png" id="11_rnjkj"]
+[ext_resource type="Texture2D" uid="uid://ddwmr0tl4hnhy" path="res://assets/Cute_Fantasy/Outdoor decoration/Outdoor_Decor_Animations/Rock_Animations/Cave_Rock_4_Anim.png" id="12_sj3mu"]
+[ext_resource type="Texture2D" uid="uid://cnwb3ibnchmn6" path="res://assets/Cute_Fantasy/Outdoor decoration/Outdoor_Decor_Animations/Rock_Animations/Rock_1_Anim.png" id="13_wbyv5"]
+[ext_resource type="Texture2D" uid="uid://b4kcv0q3382ok" path="res://assets/Cute_Fantasy/Outdoor decoration/Outdoor_Decor_Animations/Rock_Animations/Rock_2_Anim.png" id="14_w3471"]
+[ext_resource type="Texture2D" uid="uid://bm041duexpsqo" path="res://assets/Cute_Fantasy/Outdoor decoration/Outdoor_Decor_Animations/Rock_Animations/Rock_3_Anim.png" id="15_kxfm2"]
+[ext_resource type="Texture2D" uid="uid://cqmxdgi16e83k" path="res://assets/Cute_Fantasy/Outdoor decoration/Outdoor_Decor_Animations/Rock_Animations/Rock_4_Anim.png" id="16_72tbl"]
+[ext_resource type="Texture2D" uid="uid://dij13dah3kmq2" path="res://assets/Cute_Fantasy/Outdoor decoration/Outdoor_Decor_Animations/Rock_Animations/Rock_5_Anim.png" id="17_ysnwh"]
+[ext_resource type="Texture2D" uid="uid://cqtvjn8vjq44e" path="res://assets/Cute_Fantasy/Outdoor decoration/Outdoor_Decor_Animations/Rock_Animations/Rock_6_Anim.png" id="18_ijf0e"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3xy84"]
+texture = ExtResource("1_bhprp")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kevht"]
+texture = ExtResource("2_6r7ba")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p0lce"]
+texture = ExtResource("3_t7wpc")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_22br4"]
+texture = ExtResource("4_r22yo")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qfdbr"]
+texture = ExtResource("5_4x805")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yyb4t"]
+texture = ExtResource("6_7ff15")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h5yk0"]
+texture = ExtResource("7_6555e")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+15:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+15:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mjaxt"]
+texture = ExtResource("8_h72y0")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+15:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+15:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_70twi"]
+texture = ExtResource("9_i225g")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+15:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+15:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eeg2c"]
+texture = ExtResource("10_pwa2d")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+15:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+15:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tx4io"]
+texture = ExtResource("11_rnjkj")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k3q22"]
+texture = ExtResource("12_sj3mu")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_heju6"]
+texture = ExtResource("13_wbyv5")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_km28u"]
+texture = ExtResource("14_w3471")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_es2af"]
+texture = ExtResource("15_kxfm2")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7gc85"]
+texture = ExtResource("16_72tbl")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jwk8o"]
+texture = ExtResource("17_ysnwh")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jvels"]
+texture = ExtResource("18_ijf0e")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+
+[resource]
+sources/0 = SubResource("TileSetAtlasSource_3xy84")
+sources/1 = SubResource("TileSetAtlasSource_kevht")
+sources/2 = SubResource("TileSetAtlasSource_tx4io")
+sources/3 = SubResource("TileSetAtlasSource_k3q22")
+sources/4 = SubResource("TileSetAtlasSource_heju6")
+sources/5 = SubResource("TileSetAtlasSource_km28u")
+sources/6 = SubResource("TileSetAtlasSource_es2af")
+sources/7 = SubResource("TileSetAtlasSource_7gc85")
+sources/8 = SubResource("TileSetAtlasSource_jwk8o")
+sources/9 = SubResource("TileSetAtlasSource_jvels")
+sources/10 = SubResource("TileSetAtlasSource_p0lce")
+sources/11 = SubResource("TileSetAtlasSource_22br4")
+sources/12 = SubResource("TileSetAtlasSource_qfdbr")
+sources/13 = SubResource("TileSetAtlasSource_yyb4t")
+sources/14 = SubResource("TileSetAtlasSource_h5yk0")
+sources/15 = SubResource("TileSetAtlasSource_mjaxt")
+sources/16 = SubResource("TileSetAtlasSource_70twi")
+sources/17 = SubResource("TileSetAtlasSource_eeg2c")

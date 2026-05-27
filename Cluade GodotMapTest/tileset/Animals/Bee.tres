@@ -1,0 +1,34 @@
+[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://brm1ci26o80x7"]
+
+[ext_resource type="Texture2D" uid="uid://difsqoqctwayn" path="res://assets/Cute_Fantasy/Animals/Bee/Bee_Flying_Animation.png" id="1_qbwa1"]
+[ext_resource type="Texture2D" uid="uid://18l0t0vi7how" path="res://assets/Cute_Fantasy/Animals/Bee/Bee_Hive.png" id="2_s75hl"]
+[ext_resource type="Texture2D" uid="uid://dfvpclhs8j61c" path="res://assets/Cute_Fantasy/Animals/Bee/Bee_Nest.png" id="3_nwjrb"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xmbfr"]
+texture = ExtResource("1_qbwa1")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6xnwx"]
+texture = ExtResource("2_s75hl")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1hrsj"]
+texture = ExtResource("3_nwjrb")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+
+[resource]
+sources/0 = SubResource("TileSetAtlasSource_xmbfr")
+sources/1 = SubResource("TileSetAtlasSource_6xnwx")
+sources/2 = SubResource("TileSetAtlasSource_1hrsj")

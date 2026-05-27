@@ -1,0 +1,13 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://cjus1fvi5cdc2"]
+
+[ext_resource type="Texture2D" uid="uid://cocw7gb2qkvph" path="res://assets/Cute_Fantasy/Animals/Butterfly/Butterfly.png" id="1_covjo"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lyidq"]
+texture = ExtResource("1_covjo")
+0:0/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+0:3/0 = 0
+
+[resource]
+sources/0 = SubResource("TileSetAtlasSource_lyidq")

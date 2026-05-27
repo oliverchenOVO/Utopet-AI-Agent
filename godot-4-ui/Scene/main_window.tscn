@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://d126xr7ngf4u0"]
+
+[ext_resource type="Script" uid="uid://cko0u6mrkbpu8" path="res://code/main_window.gd" id="1_aurhl"]
+[ext_resource type="PackedScene" uid="uid://bfud317boiosl" path="res://Scene/character.tscn" id="1_wxieh"]
+[ext_resource type="PackedScene" uid="uid://btp2pwp6sxsoe" path="res://Scene/chat_text.tscn" id="3_jp3cc"]
+[ext_resource type="PackedScene" uid="uid://c3mx75wyj7qaj" path="res://Scene/right_click_UI.tscn" id="4_jj15r"]
+[ext_resource type="PackedScene" uid="uid://dscwx3co6kav6" path="res://Scene/dialog_box.tscn" id="5_047uy"]
+[ext_resource type="PackedScene" uid="uid://h0hhuttjf6jh" path="res://Scene/internet.tscn" id="5_xoxhi"]
+[ext_resource type="PackedScene" uid="uid://dvdggc5e33jp5" path="res://Scene/speak_window.tscn" id="7_exhqj"]
+
+[node name="MainWindow" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(244, 423)
+mouse_filter = 2
+script = ExtResource("1_aurhl")
+
+[node name="Character" parent="." instance=ExtResource("1_wxieh")]
+position = Vector2(85, 325)
+scale = Vector2(1.11567, 1.11567)
+
+[node name="ChatText" parent="Character" instance=ExtResource("3_jp3cc")]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -227.666
+offset_top = -150.582
+offset_right = 108.334
+offset_bottom = -88.5822
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(1, 0.987639)
+
+[node name="DialogBox" parent="." instance=ExtResource("5_047uy")]
+layout_mode = 1
+offset_top = 0.999998
+offset_bottom = -503.0
+scale = Vector2(0.996811, 6.56631)
+
+[node name="internet" parent="." instance=ExtResource("5_xoxhi")]
+visible = false
+layout_mode = 1
+offset_left = -2.0
+offset_top = 2.0
+offset_right = -2.27417
+offset_bottom = -3659.4
+
+[node name="right_click" parent="." instance=ExtResource("4_jj15r")]
+unfocusable = false
+
+[node name="speak_window" parent="." instance=ExtResource("7_exhqj")]
+unique_name_in_owner = true
+visible = false
+
+[connection signal="chat" from="Character" to="." method="_on_character_chat"]

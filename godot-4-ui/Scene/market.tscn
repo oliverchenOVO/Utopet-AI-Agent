@@ -1,0 +1,80 @@
+[gd_scene load_steps=3 format=3 uid="uid://buwvfboma3xsk"]
+
+[ext_resource type="Script" uid="uid://h64h8e800elg" path="res://code/market.gd" id="1_ch3rm"]
+[ext_resource type="PackedScene" uid="uid://pir5rctqepob" path="res://Scene/coin.tscn" id="2_lhgyp"]
+
+[node name="market" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ch3rm")
+
+[node name="market" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 717.0
+offset_bottom = 497.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="market"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="market/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 500
+
+[node name="Label" type="Label" parent="market/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = " 商店"
+
+[node name="coin" parent="market/VBoxContainer/HBoxContainer" instance=ExtResource("2_lhgyp")]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Header" type="VBoxContainer" parent="market/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="LineEdit" type="LineEdit" parent="market/VBoxContainer/Header"]
+layout_mode = 2
+placeholder_text = "搜尋名稱..."
+
+[node name="buttons" type="HBoxContainer" parent="market/VBoxContainer/Header"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Button" type="Button" parent="market/VBoxContainer/Header/buttons"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "全部"
+
+[node name="Button2" type="Button" parent="market/VBoxContainer/Header/buttons"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "食物"
+
+[node name="VScrollBar" type="VScrollBar" parent="market/VBoxContainer"]
+custom_minimum_size = Vector2(0, 330)
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="prodcut" type="GridContainer" parent="market/VBoxContainer/VScrollBar"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -703.0
+offset_top = -6.0
+offset_right = -17.0
+offset_bottom = 330.0
+grow_horizontal = 0
+columns = 4

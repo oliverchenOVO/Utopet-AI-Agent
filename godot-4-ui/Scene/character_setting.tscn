@@ -1,0 +1,214 @@
+[gd_scene load_steps=23 format=3 uid="uid://b8rgjgbpl0v8w"]
+
+[ext_resource type="Script" uid="uid://d3opwi5kk3c1" path="res://code/character_setting.gd" id="1_exv7o"]
+[ext_resource type="Texture2D" uid="uid://bghpbxpowendv" path="res://Scene/backgroung_sky.jpg" id="2_1rt1i"]
+[ext_resource type="Texture2D" uid="uid://dc3hlv04if4tr" path="res://Scene/home.png" id="2_lodnd"]
+[ext_resource type="Texture2D" uid="uid://2utkbki2cjtb" path="res://Scene/backpack.png" id="3_1rt1i"]
+[ext_resource type="PackedScene" uid="uid://bhbfb0ev2t2ot" path="res://Scene/backpack.tscn" id="3_3tqik"]
+[ext_resource type="PackedScene" uid="uid://d17m5j5cb2rbn" path="res://Scene/character_info.tscn" id="3_radko"]
+[ext_resource type="PackedScene" uid="uid://buwvfboma3xsk" path="res://Scene/market.tscn" id="4_3tqik"]
+[ext_resource type="Texture2D" uid="uid://ckjta8m65cuth" path="res://Scene/market.png" id="4_q1tia"]
+[ext_resource type="Texture2D" uid="uid://cyevkohft6yuk" path="res://Scene/work.png" id="6_q1tia"]
+[ext_resource type="Texture2D" uid="uid://btmgiistcm862" path="res://Scene/settings.png" id="7_m1v6m"]
+[ext_resource type="Texture2D" uid="uid://vaf7xn4dpf7q" path="res://Scene/schedule.png" id="8_n1d11"]
+[ext_resource type="PackedScene" uid="uid://c7ufkn6y3321j" path="res://Scene/setting.tscn" id="12_g1voa"]
+[ext_resource type="PackedScene" uid="uid://bldw2ji0jx7ah" path="res://Scene/work.tscn" id="12_io5yx"]
+[ext_resource type="PackedScene" uid="uid://dvdggc5e33jp5" path="res://Scene/speak_window.tscn" id="14_n1d11"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q1tia"]
+texture = ExtResource("2_1rt1i")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1rt1i"]
+border_width_left = 5
+border_width_top = 5
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g1voa"]
+texture = ExtResource("2_lodnd")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_io5yx"]
+texture = ExtResource("3_1rt1i")
+expand_margin_top = 1.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n1d11"]
+texture = ExtResource("4_q1tia")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dse2r"]
+texture = ExtResource("6_q1tia")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uq3f1"]
+texture = ExtResource("7_m1v6m")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wy57h"]
+texture = ExtResource("8_n1d11")
+
+[node name="character_setting" type="Window"]
+title = "角色面板"
+initial_position = 2
+size = Vector2i(800, 500)
+unresizable = true
+popup_window = true
+min_size = Vector2i(800, 500)
+theme_override_font_sizes/title_font_size = 25
+script = ExtResource("1_exv7o")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_q1tia")
+
+[node name="VSeparator" type="VSeparator" parent="Panel"]
+layout_mode = 0
+offset_left = 68.0
+offset_top = -25.0
+offset_right = 78.0
+offset_bottom = 19.0
+scale = Vector2(1, 12.5266)
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxFlat_1rt1i")
+
+[node name="buttons" type="VBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 22.0
+offset_right = 18.0
+offset_bottom = 102.0
+scale = Vector2(6.04429, 5.90309)
+size_flags_horizontal = 0
+theme_override_constants/separation = 5
+
+[node name="home" type="Button" parent="Panel/buttons"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Panel/buttons/home"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_g1voa")
+
+[node name="backpack" type="Button" parent="Panel/buttons"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Panel/buttons/backpack"]
+layout_mode = 0
+offset_top = 1.0
+offset_right = 8.0
+offset_bottom = 6.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_io5yx")
+
+[node name="market" type="Button" parent="Panel/buttons"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Panel/buttons/market"]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 8.0
+offset_bottom = 8.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_n1d11")
+
+[node name="work" type="Button" parent="Panel/buttons"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Panel/buttons/work"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_dse2r")
+
+[node name="setting" type="Button" parent="Panel/buttons"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Panel/buttons/setting"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_uq3f1")
+
+[node name="schedule" type="Button" parent="Panel/buttons"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Panel/buttons/schedule"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 9.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_wy57h")
+
+[node name="character_info" parent="Panel" instance=ExtResource("3_radko")]
+self_modulate = Color(0.443137, 0.443137, 0.443137, 0.607843)
+layout_mode = 1
+offset_left = 75.0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="backpack" parent="Panel" instance=ExtResource("3_3tqik")]
+visible = false
+self_modulate = Color(1, 1, 1, 0.607843)
+layout_mode = 1
+offset_left = 75.0
+
+[node name="market" parent="Panel" instance=ExtResource("4_3tqik")]
+visible = false
+self_modulate = Color(1, 1, 1, 0.607843)
+layout_mode = 1
+offset_left = 75.0
+
+[node name="work" parent="Panel" instance=ExtResource("12_io5yx")]
+visible = false
+self_modulate = Color(1, 1, 1, 0.607843)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 75.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="setting" parent="Panel" instance=ExtResource("12_g1voa")]
+visible = false
+self_modulate = Color(1, 1, 1, 0.607843)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 75.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="speak_window" parent="Panel" instance=ExtResource("14_n1d11")]
+unique_name_in_owner = true
+initial_position = 0
+position = Vector2i(259, 74)
+size = Vector2i(717, 501)
+visible = false
+transient = true
+exclusive = true
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="pressed" from="Panel/buttons/home" to="." method="_on_home_pressed"]
+[connection signal="pressed" from="Panel/buttons/backpack" to="." method="_on_backpack_pressed"]
+[connection signal="pressed" from="Panel/buttons/market" to="." method="_on_market_pressed"]
+[connection signal="pressed" from="Panel/buttons/work" to="." method="_on_work_pressed"]
+[connection signal="pressed" from="Panel/buttons/setting" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Panel/buttons/schedule" to="." method="_on_schedule_pressed"]

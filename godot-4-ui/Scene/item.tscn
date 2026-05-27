@@ -1,0 +1,106 @@
+[gd_scene load_steps=9 format=3 uid="uid://1687kcmafofr"]
+
+[ext_resource type="Texture2D" uid="uid://7b1mckl6aghv" path="res://Scene/brickwall.png" id="1_2ovjx"]
+[ext_resource type="Script" uid="uid://dlrsg8vdquyfi" path="res://code/item.gd" id="1_wncjd"]
+[ext_resource type="Texture2D" uid="uid://bdyxpus5wjx1x" path="res://Scene/bread.png" id="2_2ovjx"]
+[ext_resource type="Texture2D" uid="uid://cxjbpf4lpx1ma" path="res://Assets/PNG/items/Dollar-Gold-Coin.png" id="2_wncjd"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sfqn0"]
+texture = ExtResource("1_2ovjx")
+expand_margin_top = 9.0
+expand_margin_bottom = 9.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ovjx"]
+bg_color = Color(0, 0, 0, 0.568627)
+border_width_left = 50
+border_width_right = 50
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+shadow_color = Color(1, 1, 1, 0.6)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wnp4o"]
+bg_color = Color(0, 0, 0, 0.666667)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sfqn0"]
+bg_color = Color(0, 0, 0, 0.666667)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[node name="item" type="PanelContainer"]
+offset_right = 156.0
+offset_bottom = 189.0
+scale = Vector2(1.02042, 1)
+theme_override_styles/panel = SubResource("StyleBoxTexture_sfqn0")
+script = ExtResource("1_wncjd")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Item_name" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_2ovjx")
+text = "麵包"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="item_icon" type="TextureRect" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("2_2ovjx")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_wnp4o")
+text = "背包:"
+
+[node name="count_label" type="Label" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "3"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_direction = 2
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="price" type="HBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="coin" type="TextureRect" parent="VBoxContainer/HBoxContainer/price"]
+custom_minimum_size = Vector2(20, 10)
+layout_mode = 2
+texture = ExtResource("2_wncjd")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="price_label" type="Label" parent="VBoxContainer/HBoxContainer/price"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_sfqn0")
+text = "價錢"
+
+[node name="buy" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "購買"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/buy" to="." method="_on_buy_pressed"]

@@ -1,0 +1,22 @@
+# Web API server
+fastapi
+uvicorn[standard]
+pydantic
+requests
+
+# Audio / speech recognition
+faster-whisper
+sounddevice
+numpy
+
+# Image / OCR / GUI
+pillow
+PyQt5
+rapidocr-onnxruntime
+
+# URL article extraction
+trafilatura
+beautifulsoup4
+
+# Optional desktop automation used by calculator.py
+pyautogui

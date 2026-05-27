@@ -1,0 +1,225 @@
+[
+  {
+    "type": "function",
+    "function": {
+      "name": "summarize_news",
+      "description": "摘要新聞文章，提取5W1H重點。當使用者要求摘要新聞、分析新聞內容時使用。",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "新聞標題"
+          },
+          "text": {
+            "type": "string",
+            "description": "新聞正文內容"
+          }
+        },
+        "required": [
+          "text"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "summarize_article",
+      "description": "摘要一般文章，提取關鍵詞。當使用者要求摘要文章、總結文章時使用。",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "文章標題"
+          },
+          "text": {
+            "type": "string",
+            "description": "文章正文內容"
+          }
+        },
+        "required": [
+          "text"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "open_ocr",
+      "description": "開啟OCR文字辨識視窗，讓使用者可以截圖辨識文字。當使用者說要辨識文字、截圖辨識、OCR時使用。",
+      "parameters": {
+        "type": "object",
+        "properties": {}
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "open_calculator",
+      "description": "開啟計算器幫使用者計算數學算式。當使用者說要計算、算數學時使用。",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "expression": {
+            "type": "string",
+            "description": "要計算的算式，例如：2+3*4"
+          }
+        },
+        "required": [
+          "expression"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "check_gmail",
+      "description": "讀取今天的 Gmail 未讀郵件數量與清單。當使用者說「有沒有新信」「幫我看信」「收信」「有幾封未讀」「郵件通知」時使用。執行後請告知未讀數量與寄件人主旨，然後詢問使用者：要幫他開 Gmail 網頁，還是幫他直接回覆或發送郵件。",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "max_results": {
+            "type": "integer",
+            "description": "最多顯示幾封，預設 20",
+            "default": 20
+          }
+        },
+        "required": []
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "compose_gmail",
+      "description": "撰寫並發送 Gmail 郵件。當使用者說「幫我發信」「寄信給」「發 email 給」時使用。系統會先顯示預覽讓使用者確認，再實際發送。",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "to": {
+            "type": "string",
+            "description": "收件人 email 地址"
+          },
+          "subject": {
+            "type": "string",
+            "description": "郵件主旨"
+          },
+          "body": {
+            "type": "string",
+            "description": "郵件內文（使用者原始口述）"
+          }
+        },
+        "required": [
+          "to",
+          "subject",
+          "body"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "add_schedule",
+      "description": "新增一筆日程到日程表。當使用者說「新增行程」「加入日程」「幫我記」「我有個約」等時使用。請從使用者的話中提取：事件名稱、日期、時間，整理成一行簡潔的字串，例如：'明天 15:00 開會'、'2026/05/01 09:00 看牙醫'。",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "schedule_text": {
+            "type": "string",
+            "description": "整理好的日程字串，格式：日期 時間 事件，例如 '明天 15:00 開會'"
+          }
+        },
+        "required": [
+          "schedule_text"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "open_gmail_web",
+      "description": "用瀏覽器開啟 Gmail 網頁。當使用者說「幫我開 Gmail」「開啟網頁」「我要自己看」「開瀏覽器」時使用。會直接開啟使用者的預設瀏覽器並導向 Gmail。",
+      "parameters": {
+        "type": "object",
+        "properties": {}
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "add_memory",
+      "description": "手動/debug 用：強制把一筆記憶寫入資料庫。平時一般對話不需要呼叫此工具，系統會在沒有使用 tool 的普通對話結束後自動判斷要不要記憶。只有當使用者明確要求「強制記住」「手動加入記憶」「debug 記憶」或開發者需要測試記憶功能時使用。importance：permanent=永久保留；days_7=7天後自動刪除；days_3=3天後自動刪除。",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "記憶的類別，簡短名詞，例如：使用者名字、喜好飲料、寵物名字"
+          },
+          "value": {
+            "type": "string",
+            "description": "記憶的內容，例如：Johnny、黑咖啡、小白"
+          },
+          "importance": {
+            "type": "string",
+            "enum": [
+              "permanent",
+              "days_7",
+              "days_3",
+              "important",
+              "normal"
+            ],
+            "description": "permanent=永久保留；days_7=7天後自動刪除；days_3=3天後自動刪除。important/normal 為舊版相容。"
+          }
+        },
+        "required": [
+          "key",
+          "value",
+          "importance"
+        ]
+      }
+    }
+  },
+  {
+  "type": "function",
+  "function": {
+    "name": "fetch_url",
+    "description": "抓取網頁的真實標題與正文內容。當使用者貼上網址要求摘要時，必須先呼叫此工具取得內容，再呼叫 summarize_news 或 summarize_article。",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string",
+          "description": "要抓取的網頁 URL"
+        }
+      },
+      "required": ["url"]
+      }
+    }
+  },
+  {
+  "type": "function",
+  "function": {
+    "name": "get_weather",
+    "description": "查詢指定地區今天的天氣，包含氣溫、降雨機率、濕度、風速。當使用者問今天天氣、會不會下雨、要不要帶傘時使用。如果使用者沒有指定地點，則使用預設地點（例如：台北）。",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "location": {
+          "type": "string",
+          "description": "查詢地點，例如：Taipei、新北市、高雄。不填則使用台北。"
+        }
+      },
+      "required": []
+      }
+    }
+  }
+]

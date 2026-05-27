@@ -1,0 +1,151 @@
+[gd_scene load_steps=8 format=3 uid="uid://d17m5j5cb2rbn"]
+
+[ext_resource type="Texture2D" uid="uid://dmiwogplsph5p" path="res://Scene/miner.png" id="1_q0c1t"]
+[ext_resource type="Script" uid="uid://cr7h2o8isq0v0" path="res://Scene/character_info.gd" id="1_vq50b"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yhg0j"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1pyng"]
+bg_color = Color(0.898039, 0.898039, 0.898039, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ooy6"]
+bg_color = Color(1, 0.498039, 0.498039, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uw2ne"]
+bg_color = Color(0.898039, 0.898039, 0.898039, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mb2o5"]
+bg_color = Color(0.364706, 0.678431, 0.886275, 1)
+
+[node name="character_info" type="Panel"]
+self_modulate = Color(0.443137, 0.443137, 0.443137, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -426.0
+offset_bottom = -353.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yhg0j")
+script = ExtResource("1_vq50b")
+
+[node name="character_info" type="MarginContainer" parent="."]
+layout_mode = 1
+offset_left = 15.0
+offset_top = 20.0
+offset_right = 876.0
+offset_bottom = 363.0
+scale = Vector2(0.833123, 0.833123)
+
+[node name="InfoContainer" type="VBoxContainer" parent="character_info"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="character_info/InfoContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="AvatarContainer" type="VBoxContainer" parent="character_info/InfoContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="AvatarContainer" type="HBoxContainer" parent="character_info/InfoContainer/HBoxContainer/AvatarContainer"]
+custom_minimum_size = Vector2(100, 190)
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Avatar" type="TextureRect" parent="character_info/InfoContainer/HBoxContainer/AvatarContainer/AvatarContainer"]
+custom_minimum_size = Vector2(170, 200)
+layout_mode = 2
+texture = ExtResource("1_q0c1t")
+expand_mode = 1
+
+[node name="Button" type="Button" parent="character_info/InfoContainer/HBoxContainer/AvatarContainer"]
+layout_mode = 2
+text = "更換圖像"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="character_info/InfoContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="NameContainer" type="HBoxContainer" parent="character_info/InfoContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="NameLabel" type="Label" parent="character_info/InfoContainer/HBoxContainer/VBoxContainer/NameContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 48
+text = "礦工"
+
+[node name="LevelLabel" type="Label" parent="character_info/InfoContainer/HBoxContainer/VBoxContainer/NameContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "(桌寵)"
+vertical_alignment = 1
+
+[node name="StarContainer" type="HBoxContainer" parent="character_info/InfoContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="HungerContainer" type="HBoxContainer" parent="character_info/InfoContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="HungerLabel" type="Label" parent="character_info/InfoContainer/HBoxContainer/VBoxContainer/HungerContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+text = "飽食度"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HungerBar" type="ProgressBar" parent="character_info/InfoContainer/HBoxContainer/VBoxContainer/HungerContainer"]
+custom_minimum_size = Vector2(525, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/background = SubResource("StyleBoxFlat_1pyng")
+theme_override_styles/fill = SubResource("StyleBoxFlat_0ooy6")
+
+[node name="FavorContainer" type="HBoxContainer" parent="character_info/InfoContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="HungerLabel" type="Label" parent="character_info/InfoContainer/HBoxContainer/VBoxContainer/FavorContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+text = "好感度"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FavorBar" type="ProgressBar" parent="character_info/InfoContainer/HBoxContainer/VBoxContainer/FavorContainer"]
+custom_minimum_size = Vector2(525, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/background = SubResource("StyleBoxFlat_uw2ne")
+theme_override_styles/fill = SubResource("StyleBoxFlat_mb2o5")
+
+[node name="DiaryContainer" type="HBoxContainer" parent="character_info/InfoContainer/HBoxContainer/VBoxContainer"]
+visible = false
+layout_direction = 3
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Button" type="Button" parent="character_info/InfoContainer/HBoxContainer/VBoxContainer/DiaryContainer"]
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+text = "查看"
+
+[node name="DiaryTitle" type="Label" parent="character_info/InfoContainer/HBoxContainer/VBoxContainer/DiaryContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 24
+text = "狀態日誌"

@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3 uid="uid://bldw2ji0jx7ah"]
+
+[ext_resource type="Script" uid="uid://hgyqi3g266fn" path="res://code/work.gd" id="1_juld4"]
+
+[node name="work" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 19.0
+offset_top = 48.0
+offset_right = 687.0
+offset_bottom = 448.0
+script = ExtResource("1_juld4")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 500.0
+offset_bottom = 400.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 22
+text = "工作狀態"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="time" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 19
+text = "    工作時常 :"
+justification_flags = 0
+
+[node name="exp" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 19
+text = "    EXP :"
+justification_flags = 0

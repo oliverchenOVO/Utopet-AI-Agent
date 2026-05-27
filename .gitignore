@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.db
+
+# Godot editor cache
+.godot/
+
+# Whisper model
+faster-whisper-medium/
+vosk-model*/
+
+# Secrets & personal data
+.env
+*.db
+
+# OS
+.DS_Store
+Thumbs.db

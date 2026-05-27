@@ -1,0 +1,29 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Claude GoDotMap"
+run/main_scene="uid://crvaxec7260r5"
+config/features=PackedStringArray("4.4", "Forward Plus")
+config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=336
+window/size/viewport_height=256
+window/stretch/mode="canvas_items"
+window/stretch/scale_mode="integer"
+
+[layer_names]
+
+2d_physics/layer_1="Agent"
+2d_physics/layer_2="Check"
+2d_physics/layer_3="Buildings"

@@ -1,0 +1,63 @@
+[gd_scene load_steps=2 format=3 uid="uid://dscwx3co6kav6"]
+
+[ext_resource type="Script" uid="uid://dumky8mvkt180" path="res://code/dialog_box.gd" id="1_iwhie"]
+
+[node name="DialogBox" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -424.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.99937, 6.61945)
+mouse_filter = 2
+script = ExtResource("1_iwhie")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 176.0
+offset_top = 63.0
+offset_right = -144.0
+offset_bottom = -51.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.394487, 0.0619022)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 30.7552
+offset_top = 15.1407
+offset_right = 288.755
+offset_bottom = 46.1407
+scale = Vector2(2.34922, 2.31754)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="speak" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "語音輸入"
+
+[node name="input_field" type="LineEdit" parent="Panel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+placeholder_text = "在這裡輸入..."
+
+[node name="SendButton" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 20)
+layout_mode = 2
+text = "送出"
+
+[node name="HistoryButton" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "紀錄"
+
+[connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/speak" to="." method="_on_speak_pressed"]
+[connection signal="text_submitted" from="Panel/VBoxContainer/HBoxContainer/input_field" to="." method="_on_input_field_text_submitted"]
+[connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/SendButton" to="." method="_on_send_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/HistoryButton" to="." method="_on_history_button_pressed"]
