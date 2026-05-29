@@ -528,10 +528,8 @@ async def _tool_aware_stream(
     from llm_stream import SYSTEM_PROMPT
     from memory_helper import get_agent_memory_context
 
-    bare_prompt     = SYSTEM_PROMPT
     enriched_prompt = inject_memory_to_prompt(SYSTEM_PROMPT)
 
-    # 若有 agent_name，在 system prompt 前注入 agent 身份與記憶
     if agent_name:
         agent_ctx = get_agent_memory_context(agent_name, max_items=10)
         agent_latest_story = ""
@@ -553,133 +551,123 @@ async def _tool_aware_stream(
         if agent_latest_story:
             agent_header += f"\n【最新日誌片段】\n{agent_latest_story}\n"
         agent_header += "\n---\n"
-        bare_prompt     = agent_header + SYSTEM_PROMPT
         enriched_prompt = agent_header + inject_memory_to_prompt(SYSTEM_PROMPT)
 
-    detect_messages = [{"role": "system", "content": bare_prompt}]
+    messages = [{"role": "system", "content": enriched_prompt}]
     if history:
-        detect_messages.extend(history)
-    detect_messages.append({"role": "user", "content": user_text})
+        messages.extend(history)
+    messages.append({"role": "user", "content": user_text})
 
-    payload_detect = {
+    payload = {
         "model":    MODEL_NAME,
-        "messages": detect_messages,
-        "stream":   False,
+        "messages": messages,
+        "stream":   True,
         "tools":    TOOLS,
         "options":  {"temperature": temperature, "num_predict": max_tokens},
     }
 
+    collected_tokens: list[str] = []
+    tool_calls: list = []
+
     try:
-        resp = await loop.run_in_executor(
-            None,
-            lambda: requests.post(OLLAMA_URL, json=payload_detect, timeout=60),
-        )
-        resp.raise_for_status()
+        with requests.post(OLLAMA_URL, json=payload, stream=True, timeout=60) as r:
+            r.raise_for_status()
+            for raw in r.iter_lines():
+                if not raw:
+                    continue
+                chunk = json.loads(raw)
+                msg   = chunk.get("message", {})
+
+                if chunk.get("done"):
+                    if not tool_calls:
+                        tool_calls = msg.get("tool_calls", [])
+                    break
+
+                # 第一包就有 tool_calls → 工具模式，停止收 token
+                tc = msg.get("tool_calls", [])
+                if tc:
+                    tool_calls = tc
+                    break
+
+                token = msg.get("content", "")
+                if token:
+                    collected_tokens.append(token)
+                    yield token_to_sse(token)   # ← 邊收邊 yield
+
     except Exception as e:
-        yield error_sse(f"tool detection 失敗：{e}")
+        yield error_sse(f"請求失敗：{e}")
         return
 
-    result     = resp.json()
-    msg        = result.get("message", {})
-    tool_calls = msg.get("tool_calls", [])
-
-    if not tool_calls:
-        content_text = msg.get("content", "")
+    # text-based tool call fallback
+    if not tool_calls and collected_tokens:
+        content_text = "".join(collected_tokens)
         tool_calls = _parse_text_tool_calls(content_text)
         if tool_calls:
             print(f"[tool] 從文字解析到工具呼叫：{[tc['function']['name'] for tc in tool_calls]}")
 
-    if tool_calls:
-        print(f"[tool] 偵測到工具呼叫：{[tc['function']['name'] for tc in tool_calls]}")
-
-        tool_results: list[str] = []
-        for tc in tool_calls:
-            tool_name = tc["function"]["name"]
-            tool_args = tc["function"].get("arguments", {})
-            if isinstance(tool_args, str):
-                tool_args = json.loads(tool_args)
-            print(f"[tool] {tool_name} → {tool_args}")
-            tool_result = await loop.run_in_executor(
-                None, lambda: execute_tool(tool_name, tool_args)
-            )
-            tool_results.append(tool_result)
-
-        tool_results_text = "\n".join(tool_results)
-        second_user_msg = (
-            f"工具執行結果如下：\n{tool_results_text}\n\n"
-            f"請根據以上資訊，用繁體中文自然地回覆使用者的問題：「{user_text}」"
-        )
-        second_messages = [{"role": "system", "content": enriched_prompt}]
-        if history:
-            second_messages.extend(history)
-        second_messages.append({"role": "user", "content": second_user_msg})
-
-        payload_stream = {
-            "model":    MODEL_NAME,
-            "messages": second_messages,
-            "stream":   True,
-            "options":  {"temperature": temperature, "num_predict": max_tokens},
-        }
-        full_reply: list[str] = []
-        try:
-            with requests.post(OLLAMA_URL, json=payload_stream, stream=True, timeout=60) as r:
-                r.raise_for_status()
-                for raw in r.iter_lines():
-                    if not raw:
-                        continue
-                    chunk = json.loads(raw)
-                    token = chunk.get("message", {}).get("content", "")
-                    if token:
-                        full_reply.append(token)
-                        yield token_to_sse(token)
-                    if chunk.get("done"):
-                        break
-        except Exception as e:
-            yield error_sse(str(e))
-            return
-
-        complete = "".join(full_reply)
-        conversation_history.add_assistant(session_id, complete)
-        yield done_sse()
-
-    else:
-        direct_messages = [{"role": "system", "content": enriched_prompt}]
-        if history:
-            direct_messages.extend(history)
-        direct_messages.append({"role": "user", "content": user_text})
-
-        payload_stream = {
-            "model":    MODEL_NAME,
-            "messages": direct_messages,
-            "stream":   True,
-            "options":  {"temperature": temperature, "num_predict": max_tokens},
-        }
-
-        full_reply: list[str] = []
-        try:
-            with requests.post(OLLAMA_URL, json=payload_stream, stream=True, timeout=60) as r:
-                r.raise_for_status()
-                for raw in r.iter_lines():
-                    if not raw:
-                        continue
-                    chunk = json.loads(raw)
-                    token = chunk.get("message", {}).get("content", "")
-                    if token:
-                        full_reply.append(token)
-                        yield token_to_sse(token)
-                    if chunk.get("done"):
-                        break
-        except Exception as e:
-            yield error_sse(str(e))
-            return
-
-        complete = "".join(full_reply)
+    if not tool_calls:
+        # ── 普通對話，token 已全部 yield 完畢 ──
+        complete = "".join(collected_tokens)
         conversation_history.add_assistant(session_id, complete)
         await loop.run_in_executor(
             None,
             lambda: auto_remember_conversation(user_text, complete, session_id, agent_name),
         )
         yield done_sse()
+        return
+
+    # ── 工具模式：執行工具 → 第二次串流 ──
+    print(f"[tool] 偵測到工具呼叫：{[tc['function']['name'] for tc in tool_calls]}")
+
+    tool_results: list[str] = []
+    for tc in tool_calls:
+        tool_name = tc["function"]["name"]
+        tool_args = tc["function"].get("arguments", {})
+        if isinstance(tool_args, str):
+            tool_args = json.loads(tool_args)
+        print(f"[tool] {tool_name} → {tool_args}")
+        tool_result = await loop.run_in_executor(
+            None, lambda: execute_tool(tool_name, tool_args)
+        )
+        tool_results.append(tool_result)
+
+    tool_results_text = "\n".join(tool_results)
+    second_user_msg = (
+        f"工具執行結果如下：\n{tool_results_text}\n\n"
+        f"請根據以上資訊，用繁體中文自然地回覆使用者的問題：「{user_text}」"
+    )
+    second_messages = [{"role": "system", "content": enriched_prompt}]
+    if history:
+        second_messages.extend(history)
+    second_messages.append({"role": "user", "content": second_user_msg})
+
+    payload_stream = {
+        "model":    MODEL_NAME,
+        "messages": second_messages,
+        "stream":   True,
+        "options":  {"temperature": temperature, "num_predict": max_tokens},
+    }
+    full_reply: list[str] = []
+    try:
+        with requests.post(OLLAMA_URL, json=payload_stream, stream=True, timeout=60) as r:
+            r.raise_for_status()
+            for raw in r.iter_lines():
+                if not raw:
+                    continue
+                chunk = json.loads(raw)
+                token = chunk.get("message", {}).get("content", "")
+                if token:
+                    full_reply.append(token)
+                    yield token_to_sse(token)
+                if chunk.get("done"):
+                    break
+    except Exception as e:
+        yield error_sse(str(e))
+        return
+
+    complete = "".join(full_reply)
+    conversation_history.add_assistant(session_id, complete)
+    yield done_sse()
 
 
 # ─── 串流對話端點 ─────────────────────────────────────────

@@ -46,6 +46,7 @@ var _sse_client: HTTPClient = null
 var _sse_active: bool = false
 var _sse_buffer: String = ""
 var _ai_reply_buffer: String = ""
+var _streaming_label: RichTextLabel = null  # 串流中的臨時 AI 訊息 label
 
 # ── Memory HTTP Request 節點（每種操作各一個，避免衝突）──
 var _http_memory_get: HTTPRequest    # GET  /memory        讀取所有記憶
@@ -338,6 +339,7 @@ func _start_chat_stream(message: String):
 	_sse_stop()
 	_ai_reply_buffer = ""
 	ai_response_received.emit("")
+	_create_streaming_label()
 
 	var body = JSON.stringify({
 		"message": message,
@@ -373,6 +375,7 @@ func _on_speak_pressed() -> void:
 	_sse_buffer = ""
 	set_meta("_sse_mode", "voice")
 	set_meta("_sse_requested", false)
+	_create_streaming_label()
 
 # ── _process：每幀輪詢 SSE ────────────────────────────────
 
@@ -407,11 +410,13 @@ func _process(_delta):
 			pass
 
 		HTTPClient.STATUS_BODY:
-			var chunk = _sse_client.read_response_body_chunk()
-			if chunk.size() > 0:
-				_sse_buffer += chunk.get_string_from_utf8()
-				_parse_sse_buffer()
-
+					var chunk = _sse_client.read_response_body_chunk()
+					while chunk.size() > 0:
+						_sse_buffer += chunk.get_string_from_utf8()
+						_parse_sse_buffer()
+						if _sse_client == null:
+							return
+						chunk = _sse_client.read_response_body_chunk()
 		_:
 			_on_sse_ended()
 
@@ -448,6 +453,7 @@ func _handle_sse_block(block: String):
 			var token = data.replace("\\n", "\n")
 			_ai_reply_buffer += token
 			ai_response_received.emit(_ai_reply_buffer)
+			_update_streaming_label(_ai_reply_buffer)
 
 		"done":
 			if _ai_reply_buffer != "":
@@ -459,10 +465,13 @@ func _handle_sse_block(block: String):
 				for emotion_tag in ["[快樂]", "[難過]", "[生氣]", "[害怕]"]:
 					clean_text = clean_text.replace(emotion_tag, "")
 				clean_text = clean_text.strip_edges()
+				_remove_streaming_label()        # ← 先移除臨時 label
 				Global.add_history("ai", clean_text)
 				load_history()
 				
 				ai_stream_done.emit(clean_text)
+			else:
+				_remove_streaming_label()
 			_on_sse_ended()
 
 func _on_sse_ended():
@@ -478,6 +487,35 @@ func _sse_stop():
 		_sse_client.close()
 		_sse_client = null
 	_sse_buffer = ""
+
+# ── 串流臨時 Label 管理 ───────────────────────────────────
+
+func _create_streaming_label():
+	_remove_streaming_label()  # 防止重複
+	if not is_instance_valid(history_message_container):
+		return
+	_streaming_label = RichTextLabel.new()
+	_streaming_label.fit_content = true
+	_streaming_label.bbcode_enabled = true
+	_streaming_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	_streaming_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_streaming_label.custom_minimum_size = Vector2(560, 0)
+	_streaming_label.text = "[color=#00FFFF][AI]:[/color] ▋"  # 游標佔位
+	history_message_container.add_child(_streaming_label)
+	await get_tree().process_frame
+	_scroll_history_to_bottom()
+
+func _update_streaming_label(full_text: String):
+	if not is_instance_valid(_streaming_label):
+		return
+	# 顯示目前累積文字 + 游標
+	_streaming_label.text = "[color=#00FFFF][AI]:[/color] " + full_text + "▋"
+	_scroll_history_to_bottom()
+
+func _remove_streaming_label():
+	if is_instance_valid(_streaming_label):
+		_streaming_label.queue_free()
+	_streaming_label = null
 
 # ── 歷史記錄 ─────────────────────────────────────────────
 
